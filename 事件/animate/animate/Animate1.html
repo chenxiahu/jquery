@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+   <script src="jquery.js"></script>
+    <style>
+   		#a1{
+   			width: 100px;
+   			height: 100px;
+   			background: #6cf;
+			position: relative;
+   		}
+   		#btn1{
+   			width: 100px;
+   			height: 30px;
+   			text-align: center;
+   			line-height: 30px;
+   			background: #ddd;
+   			border-radius: 5px;
+   		}
+    </style>
+    
+</head>
+
+<body>  
+        <div id="btn1">点击显示动画</div> 
+        <div id="a1"></div>
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+          $("#btn1").click(function() {
+            $("#a1").animate({left:"500px"},"slow")
+            		.animate({top:"200px"},"slow")
+            		.animate({left:"0px"},"slow")
+           			.animate({top:"0px"},"slow");
+          });
+        })
+        	
+        </script>
+</body>
+
+
+</html>

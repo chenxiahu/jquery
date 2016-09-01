@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>事件冒泡</title>
+	<script type="text/javascript" src="jquery-1.9.1.js"></script>
+	<script type="text/javascript">
+		$("p").ready(function(){
+		 	$("#second").click(function(event){
+		  	   alert("我是second");    
+		  	  // return false;
+		  	    //event  event
+		  	   // event.stopPropagation();
+		 	})
+		 	$("#first").click(function(){
+			   alert("我是first");   
+		 })
+		 	 //$("#move").hover(function(){
+		 	 //	$("#second").unbind("mouseenter").unbind("mouseleave");
+		 	 //	$("#first").unbind("mouseenter").unbind("mouseleave");
+		 	// })
+		 	 //$("#move").click(function(){
+		 	//	$("#second").unbind("hover");
+		 	 	//$("#second").unbind("hover");
+		 //	})
+		 	$("#move").click(function(){
+		 		$("#second").unbind("click");
+		 		$("#first").unbind("click");
+		 	})
+		})
+		//方式一：event.stopPropagation();
+
+        // $("#div1").mousedown(function(event){
+        //     event.stopPropagation();
+        // });
+
+		//方式二：return false;
+
+        // $("#div1").mousedown(function(event){
+        //     return false;
+        // });
+	</script>
+	</head>
+	<body>
+		<p id="first">
+			<a id="second" href="http://www.baidu.com">点击查看效果</a>
+		</p>
+		<button id="move" >移除</button>
+	</body>
+</html>

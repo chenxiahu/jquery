@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script>
+	// $(document).ready(function(){
+	// 	$("#theone").click(aClick);
+	// 	function aClick() {
+ //    	  alert("a");
+ //  			}
+ // 		 $("#unbind").click(function () {
+ //    	  $("#theone").die("click", aClick)
+ // 		 });
+	
+	// })
+		$(function(){
+			$('.clickme').bind('click',function(){
+				alert("dfas");
+			});
+			$("body").append('<div class="clickme">youlaiyig</div>');
+			//尽管这个新的元素也能够匹配选择器 ".clickme" ，但是由于这个元素是在调用 .bind() 之后添加的，所以点击这个元素不会有任何效果。
+			//.live() 就提供了对应这种情况的方法。如果我们是这样绑定click事件的：
+			
+			$('.clickme').live('click', function() {
+ 				 alert("Live handler called."); 
+			});
+			 $(".unbind").click(function () {
+    		//	  $(".clickme").die();
+    			//  alert("a");
+				$(".clickme").unbind();
+ 			});
+	
+
+		})
+	</script>
+</head>
+<body>
+	<!-- <input type="button" value="你点" id="theone"></input>
+	<input type="button" value="移除" id="unbind"></input> -->
+	<div class="clickme">click here</div>
+	<hr/>
+	<div class="unbind">yichu</div>
+</body>
+</html>

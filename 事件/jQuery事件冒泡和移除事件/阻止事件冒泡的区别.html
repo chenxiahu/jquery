@@ -1,0 +1,27 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#div1").mousedown(function(event){
+            event.stopPropagation();
+            //return false;
+        });
+        $("#div2").mousedown(function(event){
+            alert("trigger mousedown event of rootDiv");
+        });
+    });
+</script>
+</head>
+<body>
+    <div id="rootDiv" style="position:relative;left:400px;top:200px;">
+        <div>1.单击输入框，使输入框获取焦点：</div>
+        <input id="input1" style="width:250px;" type="text"></input>
+        <div id="div2">
+            <div id="div1" style="width:200px;height:200px;background-color:red;"><br><br>2.然后再单击这里</div>
+        </div>
+    </div>
+</body>
+</html>

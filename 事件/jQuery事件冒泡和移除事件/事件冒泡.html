@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset=" utf-8"> 
+	<head>
+	<title>事件冒泡</title>
+	<style type="text/css">
+		#grandfather{
+		 border:1px solid #0066FF;
+		 cellpadding:0px;
+		 cellspacing:0px;
+		}
+		#grandfather td{
+		 border: 1px solid #0066FF;
+		}
+	</style>
+	<script type="text/javascript">
+		function trclick(){
+		 alert("父亲的onclick事件触发");
+		}
+		function tableclick(){
+		 alert("祖父的onclick事件触发");
+		}
+		window.onload=function(){
+		 	var grandfather=document.getElementById("grandfather");
+		 	var father=document.getElementById("father");
+		 	var noStop=document.getElementById("noStop");
+		 	var haveStop=document.getElementById("haveStop");
+		  
+		 	grandfather.onclick=tableclick;
+		 	father.onclick=trclick;
+		  
+		 	noStop.onclick=function(){
+		 	alert("没有阻止冒泡的子元素");
+		 }
+		 haveStop.onclick=function(evt){
+		 	alert("阻止冒泡的子元素");
+		 	if(window.event){
+		 	event.cancelBubble=true;
+		 	}
+		 	else if(evt){
+		 		evt.stopPropagation();
+		 	}
+		 }
+		}
+	</script>
+	</head>
+	<body>
+		<table width="204" id="grandfather">
+		 	<tr >
+		 		<td width="96"></td>
+		 		<td width="96"></td>
+		 	</tr>
+		 	<tr id="father">
+		 		<td id="noStop">没有阻止事件冒泡</td>
+		 		<td id="haveStop">阻止了事件冒泡</td>
+		 	</tr>
+		 	<tr>
+		 	<td> </td>
+		 	<td> </td>
+		 	</tr>
+		</table>
+	</body>
+</html>
